@@ -1,0 +1,277 @@
+/* ==========================================================
+   Footer — Data Umbrella Event Board
+   Dark-navy theme · 3-column grid · fully responsive
+   ========================================================== */
+
+.footer {
+  --f-bg: #0d1117;
+  --f-surface: #161b22;
+  --f-border: rgba(255, 255, 255, 0.1);
+  --f-muted: #8b949e;
+  --f-light: #c9d1d9;
+  --f-white: #f0f6fc;
+  --f-accent: #7c9dff;
+  --f-accent-h: #a8bfff;
+  --f-r: 8px;
+  --f-ease: 0.18s ease;
+
+  background-color: var(--f-bg);
+  color: var(--f-muted);
+  font-size: 0.875rem;
+  line-height: 1.6;
+  /* Sit flush against main content — no top border/divider */
+  border-top: none;
+}
+
+/* ── Centred inner wrapper ───────────────────────────── */
+.footer-inner {
+  max-width: 1200px;
+  margin: 0 auto;
+  padding: 0 2rem;
+}
+
+/* ── 3-column main grid ──────────────────────────────── */
+/*
+   col-1 (brand)      : 220px fixed
+   col-2 (nav)        : 240px fixed
+   col-3 (suggestions): remaining space
+*/
+.footer-main {
+  display: grid;
+  grid-template-columns: 220px 240px 1fr;
+  gap: 3rem;
+  padding: 3rem 0 2rem;
+  align-items: start;
+}
+
+/* Tablet (≤ 1024px): nav + suggestions sit side-by-side under brand */
+@media (max-width: 1024px) {
+  .footer-main {
+    grid-template-columns: 1fr 1fr;
+    gap: 2rem 3rem;
+  }
+
+  /* Brand spans full width on its own row */
+  .footer-brand {
+    grid-column: 1 / -1;
+  }
+}
+
+/* Mobile (≤ 640px): single column stack */
+@media (max-width: 640px) {
+  .footer-inner {
+    padding: 0 1.25rem;
+  }
+
+  .footer-main {
+    grid-template-columns: 1fr;
+    gap: 1.75rem;
+    padding: 2rem 0 1.5rem;
+  }
+
+  .footer-brand {
+    grid-column: unset;
+  }
+}
+
+/* ── Column 1: Brand ─────────────────────────────────── */
+.footer-brand {
+  display: flex;
+  flex-direction: column;
+  gap: 0.875rem;
+  align-items: center;
+  justify-content: center;
+}
+
+.footer-logo {
+  display: block;
+  max-width: 155px;
+  width: 100%;
+  height: auto;
+}
+
+.footer-tagline {
+  margin: 0;
+  font-size: 0.8125rem;
+  color: var(--f-muted);
+  line-height: 1.6;
+  max-width: 195px;
+}
+
+/* Social icon row */
+.footer-socials {
+  display: flex;
+  gap: 0.5rem;
+  margin-top: 0.125rem;
+}
+
+.footer-social-btn {
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  width: 2.25rem;
+  height: 2.25rem;
+  border-radius: var(--f-r);
+  border: 1px solid var(--f-border);
+  color: var(--f-light);
+  background: transparent;
+  text-decoration: none;
+  transition:
+    color var(--f-ease),
+    border-color var(--f-ease),
+    background var(--f-ease);
+}
+
+.footer-social-btn:hover,
+.footer-social-btn:focus-visible {
+  color: var(--f-white);
+  border-color: rgba(255, 255, 255, 0.3);
+  background: rgba(255, 255, 255, 0.07);
+  outline: none;
+}
+
+/* ── Column 2: Navigation ────────────────────────────── */
+.footer-nav {
+  /* Visually align top with the logo */
+  padding-top: 0.25rem;
+}
+
+.footer-nav-list {
+  list-style: none;
+  margin: 0;
+  padding: 0;
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  gap: 0.875rem 1.5rem;
+  align-content: start;
+}
+
+.footer-nav-link {
+  display: inline-flex;
+  align-items: center;
+  gap: 0.25rem;
+  color: var(--f-light);
+  text-decoration: none;
+  font-size: 0.875rem;
+  font-weight: 500;
+  white-space: nowrap;
+  transition: color var(--f-ease);
+}
+
+.footer-nav-link:hover,
+.footer-nav-link:focus-visible {
+  color: var(--f-white);
+  outline: none;
+}
+
+.footer-ext-icon {
+  flex-shrink: 0;
+  opacity: 0.55;
+  margin-top: 1px;
+}
+
+/* ── Column 3: Give Suggestions ─────────────────────── */
+.footer-suggestions {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  /* align-items: flex-start; */
+  gap: 0.625rem;
+  padding-top: 0.25rem;
+}
+
+.footer-suggestions-title {
+  margin: 0;
+  font-size: 1rem;
+  font-weight: 700;
+  color: var(--f-white);
+  letter-spacing: 0.01em;
+}
+
+.footer-suggestions-desc {
+  margin: 0;
+  font-size: 0.8125rem;
+  color: var(--f-muted);
+  line-height: 1.55;
+  max-width: 320px;
+}
+
+/* CTA button linking to /suggestions page */
+.footer-suggestions-btn {
+  display: inline-flex;
+  align-items: center;
+  gap: 0.35rem;
+  margin-top: 0.25rem;
+  padding: 0.5rem 1.125rem;
+  border-radius: var(--f-r);
+  border: 1px solid var(--f-accent);
+  background: transparent;
+  color: var(--f-accent);
+  font-size: 0.875rem;
+  font-weight: 600;
+  text-decoration: none;
+  transition:
+    background var(--f-ease),
+    color var(--f-ease),
+    border-color var(--f-ease),
+    transform var(--f-ease);
+}
+
+.footer-suggestions-btn:hover,
+.footer-suggestions-btn:focus-visible {
+  background: var(--f-accent);
+  color: #0d1117;
+  outline: none;
+  transform: translateY(-1px);
+}
+
+.footer-suggestions-btn:active {
+  transform: translateY(0);
+}
+
+/* ── Bottom copyright bar ────────────────────────────── */
+.footer-bottom {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  flex-direction: column;
+  flex-wrap: wrap;
+  gap: 0.5rem;
+  padding: 1.125rem 0;
+  border-top: 1px solid var(--f-border);
+
+  width: 100vw;
+  margin-left: calc(-50vw + 50%);
+  position: relative;
+}
+
+.footer-copyright,
+.footer-built-by {
+  margin: 0;
+  align-items: center;
+  justify-content: center;
+  font-size: 0.8rem;
+  color: var(--f-muted);
+}
+
+.footer-inline-link {
+  color: var(--f-accent);
+  text-decoration: none;
+  transition: color var(--f-ease);
+}
+
+.footer-inline-link:hover {
+  color: var(--f-accent-h);
+  text-decoration: underline;
+}
+
+@media (max-width: 640px) {
+  .footer-bottom {
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    text-align: center;
+    gap: 0.375rem;
+  }
+}
