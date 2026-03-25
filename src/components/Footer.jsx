@@ -1,4 +1,3 @@
-import { Link } from "react-router-dom";
 import "./Footer.css";
 
 const NAV_LINKS = [
@@ -133,9 +132,8 @@ function Footer() {
                   <a
                     href={href}
                     className="footer-nav-link"
-                    {...(external
-                      ? { target: "_blank", rel: "noopener noreferrer" }
-                      : {})}
+                    target="_blank"
+                    rel="noopener noreferrer"
                   >
                     {label}
                     {external && <ExternalIcon />}
@@ -144,33 +142,6 @@ function Footer() {
               ))}
             </ul>
           </nav>
-
-          {/* Column 3 — Give Suggestions */}
-          <div className="footer-suggestions">
-            <h2 className="footer-suggestions-title">Give Suggestions</h2>
-            <p className="footer-suggestions-desc">
-              Have an idea or spotted something that could be improved? Share
-              your feedback with the Data Umbrella community.
-            </p>
-            <Link to="/suggestions" className="footer-suggestions-btn">
-              Share your feedback
-              <svg
-                xmlns="http://www.w3.org/2000/svg"
-                width="14"
-                height="14"
-                viewBox="0 0 24 24"
-                fill="none"
-                stroke="currentColor"
-                strokeWidth="2.5"
-                strokeLinecap="round"
-                strokeLinejoin="round"
-                aria-hidden="true"
-              >
-                <line x1="5" y1="12" x2="19" y2="12" />
-                <polyline points="12 5 19 12 12 19" />
-              </svg>
-            </Link>
-          </div>
         </div>
 
         {/* ── Bottom copyright bar ──────────────────── */}
