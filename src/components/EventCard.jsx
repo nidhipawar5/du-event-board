@@ -26,7 +26,7 @@ export default function EventCard({ event }) {
       <div className="event-card__header">
         {!isPast && <ShareMenu event={event} />}
 
-      <span className="event-card__category">{event.category}</span>
+        <span className="event-card__category">{event.category}</span>
 
         {status !== "none" && (
           <div className={`status-badge ${statusMap[status]}`}>
